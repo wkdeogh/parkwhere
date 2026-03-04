@@ -159,12 +159,10 @@ export default function Home() {
             ) : null}
           </div>
           <h1 className="text-3xl font-semibold tracking-tight text-[#1f1c16]">
-            어디에 주차했는지
-            <span className="block text-[#3a4a34]">한눈에 기록해요.</span>
+            대호상희 GV70 찾기
           </h1>
           <p className="text-sm leading-6 text-[#6c6358]">
-            B4~B6 층, A~D 기둥열, 1~4 번호를 선택하고 저장하면
-            모두에게 동시에 반영돼요.
+            힐스테이트광교중앙역
           </p>
         </header>
 
