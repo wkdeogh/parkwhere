@@ -138,72 +138,69 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#fef7e5,_#f6f3ee_55%,_#ece3d2)]">
-      <div className="pointer-events-none absolute -top-24 right-[-10%] h-64 w-64 rounded-full bg-[radial-gradient(circle,_#cbb58e,_transparent_70%)] opacity-60 blur-2xl" />
-      <div className="pointer-events-none absolute bottom-[-20%] left-[-15%] h-96 w-96 rounded-full bg-[radial-gradient(circle,_#b8c2b4,_transparent_65%)] opacity-50 blur-3xl" />
+    <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#1d2a24,_#0c0f0e_55%,_#090b0a)]">
+      <div className="pointer-events-none absolute -top-24 right-[-10%] h-64 w-64 rounded-full bg-[radial-gradient(circle,_#2a3c35,_transparent_70%)] opacity-60 blur-2xl" />
+      <div className="pointer-events-none absolute bottom-[-20%] left-[-15%] h-96 w-96 rounded-full bg-[radial-gradient(circle,_#1f2a25,_transparent_65%)] opacity-60 blur-3xl" />
 
       <main className="relative z-10 mx-auto flex w-full max-w-xl flex-col gap-8 px-5 pb-16 pt-12 sm:px-8">
         <header className="flex flex-col gap-3">
-          <div className="flex items-center justify-between">
-            <span className="rounded-full border border-[#eadfca] bg-white/70 px-3 py-1 text-xs font-medium text-[#6b5e45] shadow-sm">
-              우리집 주차 기록
-            </span>
+          <div className="flex items-center justify-end">
             {nickname ? (
               <button
                 type="button"
                 onClick={() => setShowNickname(true)}
-                className="text-xs font-semibold text-[#5d574f] underline-offset-4 hover:underline"
+                className="text-xs font-semibold text-[#b3ac9f] underline-offset-4 hover:underline"
               >
                 이름 변경
               </button>
             ) : null}
           </div>
-          <h1 className="text-3xl font-semibold tracking-tight text-[#1f1c16]">
+          <h1 className="text-3xl font-semibold tracking-tight text-[#f5f2ea]">
             대호상희 GV70 찾기
           </h1>
-          <p className="text-sm leading-6 text-[#6c6358]">
+          <p className="text-sm leading-6 text-[#b0a79a]">
             힐스테이트광교중앙역
           </p>
         </header>
 
-        <section className="rounded-3xl border border-[#eadfca] bg-white/80 p-5 shadow-[0_12px_36px_-30px_rgba(41,34,25,0.5)] backdrop-blur">
+        <section className="rounded-3xl border border-[#203129] bg-[#121815]/90 p-5 shadow-[0_16px_40px_-30px_rgba(0,0,0,0.6)] backdrop-blur">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#9c8a6f]">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#7f8f85]">
                 현재 위치
               </p>
-              <div className="mt-2 text-3xl font-semibold text-[#1f1c16]">
+              <div className="mt-2 text-3xl font-semibold text-[#f5f2ea]">
                 {loading ? (
-                  <span className="text-lg text-[#8e8474]">불러오는 중...</span>
+                  <span className="text-lg text-[#9a9f98]">불러오는 중...</span>
                 ) : currentSpot ? (
                   <span>
                     {currentSpot.level} · {currentSpot.column}
                     {currentSpot.number}
                   </span>
                 ) : (
-                  <span className="text-lg text-[#8e8474]">아직 기록 없음</span>
+                  <span className="text-lg text-[#9a9f98]">아직 기록 없음</span>
                 )}
               </div>
             </div>
-            <div className="rounded-2xl border border-[#ede4d0] bg-[#fdf8ef] px-4 py-3 text-right text-xs text-[#6f675c]">
-              <div className="font-semibold text-[#3a352f]">
+            <div className="rounded-2xl border border-[#1f2a25] bg-[#0f1412] px-4 py-3 text-right text-xs text-[#a7ada6]">
+              <div className="font-semibold text-[#e6e1d7]">
                 {currentSpot?.updatedBy ?? "-"}
               </div>
-              <div className="mt-1 font-mono text-[11px] text-[#9c8a6f]">
+              <div className="mt-1 font-mono text-[11px] text-[#7f8f85]">
                 {formattedUpdatedAt}
               </div>
             </div>
           </div>
           {error ? (
-            <p className="mt-4 rounded-2xl border border-[#e8c9b2] bg-[#fff1e6] px-4 py-3 text-xs text-[#8f3f2c]">
+            <p className="mt-4 rounded-2xl border border-[#5a2d2d] bg-[#2a1515] px-4 py-3 text-xs text-[#f2b6b6]">
               {error}
             </p>
           ) : null}
         </section>
 
-        <section className="flex flex-col gap-6 rounded-3xl border border-[#e5dcc8] bg-white/90 p-6 shadow-[0_16px_40px_-30px_rgba(41,34,25,0.55)]">
+        <section className="flex flex-col gap-6 rounded-3xl border border-[#203129] bg-[#121815]/95 p-6 shadow-[0_18px_42px_-30px_rgba(0,0,0,0.7)]">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#9c8a6f]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#7f8f85]">
               층 선택
             </p>
             <div className="mt-3 grid grid-cols-3 gap-3">
@@ -216,8 +213,8 @@ export default function Home() {
                   }
                   className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
                     selection.level === floor
-                      ? "border-[#2f3a2a] bg-[#2f3a2a] text-white"
-                      : "border-[#e8dcc5] bg-white text-[#4b443b] hover:border-[#b9ac8f]"
+                      ? "border-[#8dc2a3] bg-[#8dc2a3] text-[#0c0f0e]"
+                      : "border-[#233229] bg-[#0f1412] text-[#c5beb2] hover:border-[#3a5346]"
                   }`}
                 >
                   {floor}
@@ -227,7 +224,7 @@ export default function Home() {
           </div>
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#9c8a6f]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#7f8f85]">
               기둥 열
             </p>
             <div className="mt-3 grid grid-cols-4 gap-3">
@@ -240,8 +237,8 @@ export default function Home() {
                   }
                   className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
                     selection.column === column
-                      ? "border-[#2f3a2a] bg-[#2f3a2a] text-white"
-                      : "border-[#e8dcc5] bg-white text-[#4b443b] hover:border-[#b9ac8f]"
+                      ? "border-[#8dc2a3] bg-[#8dc2a3] text-[#0c0f0e]"
+                      : "border-[#233229] bg-[#0f1412] text-[#c5beb2] hover:border-[#3a5346]"
                   }`}
                 >
                   {column}
@@ -251,7 +248,7 @@ export default function Home() {
           </div>
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#9c8a6f]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#7f8f85]">
               번호
             </p>
             <div className="mt-3 grid grid-cols-4 gap-3">
@@ -264,8 +261,8 @@ export default function Home() {
                   }
                   className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
                     selection.number === num
-                      ? "border-[#2f3a2a] bg-[#2f3a2a] text-white"
-                      : "border-[#e8dcc5] bg-white text-[#4b443b] hover:border-[#b9ac8f]"
+                      ? "border-[#8dc2a3] bg-[#8dc2a3] text-[#0c0f0e]"
+                      : "border-[#233229] bg-[#0f1412] text-[#c5beb2] hover:border-[#3a5346]"
                   }`}
                 >
                   {num}
@@ -278,7 +275,7 @@ export default function Home() {
             type="button"
             onClick={handleSave}
             disabled={saving}
-            className="mt-2 rounded-2xl bg-[#2f3a2a] px-6 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-15px_rgba(47,58,42,0.7)] transition hover:bg-[#1f251d] disabled:cursor-not-allowed disabled:bg-[#9aa494]"
+            className="mt-2 rounded-2xl bg-[#8dc2a3] px-6 py-4 text-sm font-semibold text-[#0c0f0e] shadow-[0_10px_30px_-15px_rgba(141,194,163,0.7)] transition hover:bg-[#6da685] disabled:cursor-not-allowed disabled:bg-[#3a4a43] disabled:text-[#aab3ad]"
           >
             {saving
               ? "저장 중..."
@@ -288,10 +285,10 @@ export default function Home() {
       </main>
 
       {showNickname ? (
-        <div className="fixed inset-0 z-20 flex items-end justify-center bg-black/30 p-5 sm:items-center">
-          <div className="w-full max-w-md rounded-3xl border border-[#eadfca] bg-white px-6 py-7 shadow-2xl">
-            <p className="text-sm font-semibold text-[#3b342d]">닉네임 입력</p>
-            <p className="mt-2 text-xs text-[#7a6f62]">
+        <div className="fixed inset-0 z-20 flex items-end justify-center bg-black/60 p-5 sm:items-center">
+          <div className="w-full max-w-md rounded-3xl border border-[#1f2a25] bg-[#121815] px-6 py-7 shadow-2xl">
+            <p className="text-sm font-semibold text-[#e6e1d7]">닉네임 입력</p>
+            <p className="mt-2 text-xs text-[#a39a8c]">
               누가 변경했는지 표시하기 위해 한 번만 입력해주세요.
             </p>
             <input
@@ -301,14 +298,14 @@ export default function Home() {
                 if (event.key === "Enter") saveNickname();
               }}
               placeholder="예: 남편, 아내"
-              className="mt-4 w-full rounded-2xl border border-[#e5dcc8] px-4 py-3 text-sm outline-none ring-offset-2 focus:border-[#2f3a2a] focus:ring-2 focus:ring-[#d8c8a6]"
+              className="mt-4 w-full rounded-2xl border border-[#233229] bg-[#0f1412] px-4 py-3 text-sm text-[#e6e1d7] outline-none ring-offset-2 focus:border-[#8dc2a3] focus:ring-2 focus:ring-[#385648]"
             />
             <div className="mt-5 flex gap-3">
               {nickname ? (
                 <button
                   type="button"
                   onClick={() => setShowNickname(false)}
-                  className="flex-1 rounded-2xl border border-[#e5dcc8] px-4 py-3 text-xs font-semibold text-[#6b6155]"
+                  className="flex-1 rounded-2xl border border-[#233229] px-4 py-3 text-xs font-semibold text-[#a9a195]"
                 >
                   취소
                 </button>
@@ -316,7 +313,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={saveNickname}
-                className="flex-1 rounded-2xl bg-[#2f3a2a] px-4 py-3 text-xs font-semibold text-white"
+                className="flex-1 rounded-2xl bg-[#8dc2a3] px-4 py-3 text-xs font-semibold text-[#0c0f0e]"
               >
                 저장
               </button>
