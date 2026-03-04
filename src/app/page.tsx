@@ -36,7 +36,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [showBurst, setShowBurst] = useState(false);
 
   const [nickname, setNickname] = useState("");
   const [nicknameInput, setNicknameInput] = useState("");
@@ -118,8 +117,6 @@ export default function Home() {
         updatedBy: nickname,
         updatedAt: serverTimestamp(),
       });
-      setShowBurst(true);
-      window.setTimeout(() => setShowBurst(false), 900);
     } catch (saveError) {
       setError(
         saveError instanceof Error
@@ -144,68 +141,6 @@ export default function Home() {
     <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#1d2a24,_#0c0f0e_55%,_#090b0a)]">
       <div className="pointer-events-none absolute -top-24 right-[-10%] h-64 w-64 rounded-full bg-[radial-gradient(circle,_#2a3c35,_transparent_70%)] opacity-60 blur-2xl" />
       <div className="pointer-events-none absolute bottom-[-20%] left-[-15%] h-96 w-96 rounded-full bg-[radial-gradient(circle,_#1f2a25,_transparent_65%)] opacity-60 blur-3xl" />
-      {showBurst ? (
-        <div className="pointer-events-none absolute inset-0 z-20">
-          <span className="burst-ring burst-glow absolute left-1/2 top-[60%] h-32 w-32 rounded-full border-2 border-[#8dc2a3]/70" />
-          <span className="burst-ring burst-glow absolute left-1/2 top-[60%] h-48 w-48 rounded-full border border-[#f3d08f]/60" />
-          <span className="burst-ring burst-glow absolute left-1/2 top-[60%] h-64 w-64 rounded-full border border-[#7fb6c2]/50" />
-          {[...Array(48)].map((_, index) => {
-            const angle = (Math.PI * 2 * index) / 48;
-            const radius = 170 + (index % 8) * 20;
-            const x = Math.cos(angle) * radius;
-            const y = Math.sin(angle) * radius;
-            const size = index % 4 === 0 ? 6 : index % 2 === 0 ? 4 : 3;
-
-            return (
-              <span
-                key={`burst-${index}`}
-                className="burst-piece burst-glow absolute left-1/2 top-[60%] rounded-full"
-                style={
-                  {
-                    width: `${size}px`,
-                    height: `${size}px`,
-                    background:
-                      index % 3 === 0
-                        ? "#8dc2a3"
-                        : index % 3 === 1
-                          ? "#f3d08f"
-                          : "#7fb6c2",
-                    boxShadow: "0 0 18px rgba(141, 194, 163, 0.7)",
-                    transform: "translate(-50%, -50%)",
-                    opacity: 0,
-                    "--x": `${x}px`,
-                    "--y": `${y}px`,
-                  } as React.CSSProperties
-                }
-              />
-            );
-          })}
-          {[...Array(16)].map((_, index) => {
-            const angle = (Math.PI * 2 * index) / 16;
-            const radius = 140 + (index % 5) * 18;
-            const x = Math.cos(angle) * radius;
-            const y = Math.sin(angle) * radius;
-
-            return (
-              <span
-                key={`spark-${index}`}
-                className="burst-piece burst-glow absolute left-1/2 top-[60%] h-10 w-[3px] rounded-full"
-                style={
-                  {
-                    background: "linear-gradient(180deg, #f7e9c6, transparent)",
-                    boxShadow: "0 0 14px rgba(243, 208, 143, 0.8)",
-                    transform: "translate(-50%, -50%) rotate(0deg)",
-                    opacity: 0,
-                    "--x": `${x}px`,
-                    "--y": `${y}px`,
-                  } as React.CSSProperties
-                }
-              />
-            );
-          })}
-        </div>
-      ) : null}
-
       <main className="relative z-10 mx-auto flex w-full max-w-xl flex-col gap-8 px-5 pb-16 pt-12 sm:px-8">
         <header className="flex flex-col gap-2">
           <div className="flex items-baseline justify-between gap-3">
