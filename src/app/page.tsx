@@ -163,23 +163,21 @@ export default function Home() {
       <div className="pointer-events-none absolute bottom-[-12%] left-[-18%] h-72 w-72 rounded-full bg-[#ffc9b8]/70 blur-3xl" />
       <main className="relative z-10 mx-auto flex w-full max-w-xl flex-col gap-6 px-5 pb-16 pt-10 sm:px-8">
         <header className="rounded-[2rem] border border-[#f5c89d] bg-white/70 px-5 py-5 shadow-[0_16px_30px_-18px_rgba(166,109,67,0.45)] backdrop-blur">
-          <div className="flex items-start justify-between gap-4">
-            <h1 className="text-3xl font-semibold tracking-tight text-[#6a3d24]">
-              대호상희 GV70 찾기
+          <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-4 gap-y-2">
+            <h1 className="text-[1.72rem] font-semibold leading-tight tracking-tight text-[#6a3d24] sm:text-3xl">
+              주차찾는 멍멍쓰
             </h1>
             {nickname ? (
-              <p className="pt-2 text-right text-xs font-medium text-[#9f6a49]">
+              <p className="pt-1 text-right text-[11px] font-medium whitespace-nowrap text-[#9f6a49] sm:pt-2 sm:text-xs">
                 {nickname}님 접속중
               </p>
             ) : null}
-          </div>
-          <div className="mt-1 flex items-center justify-between gap-4">
             <p className="text-sm text-[#9f6a49]">힐스테이트광교중앙역</p>
             {nickname ? (
               <button
                 type="button"
                 onClick={() => setShowNickname(true)}
-                className="rounded-full border border-[#f1c091] bg-[#fff5e5] px-4 py-2 text-xs font-semibold text-[#9c5f38]"
+                className="justify-self-end rounded-full border border-[#f1c091] bg-[#fff5e5] px-4 py-2 text-xs font-semibold text-[#9c5f38]"
               >
                 이름 변경
               </button>
@@ -188,23 +186,23 @@ export default function Home() {
         </header>
 
         <section className="rounded-[2rem] border border-[#f2c39b] bg-[#fff8ef]/90 p-5 shadow-[0_18px_32px_-20px_rgba(141,88,51,0.4)]">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-4">
-              <div
-                className={`relative h-28 w-28 shrink-0 transition-transform duration-300 ${
-                  savedPulse ? "scale-105" : "scale-100"
-                }`}
-              >
-                <Image
-                  src="/bear-cutout.png"
-                  alt="곰돌이 캐릭터"
-                  fill
-                  sizes="112px"
-                  className="object-contain drop-shadow-[0_10px_18px_rgba(152,95,56,0.28)]"
-                  priority
-                />
-              </div>
-              <div>
+          <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-4">
+            <div
+              className={`relative h-24 w-24 shrink-0 transition-transform duration-300 sm:h-28 sm:w-28 ${
+                savedPulse ? "scale-105" : "scale-100"
+              }`}
+            >
+              <Image
+                src="/bear-cutout.png"
+                alt="곰돌이 캐릭터"
+                fill
+                sizes="(max-width: 640px) 96px, 112px"
+                className="object-contain drop-shadow-[0_10px_18px_rgba(152,95,56,0.28)]"
+                priority
+              />
+            </div>
+            <div className="flex min-w-0 flex-col gap-3">
+              <div className="sm:text-right">
                 {loading ? (
                   <p className="text-sm font-medium text-[#875334]">
                     위치 불러오는 중이에요...
@@ -228,13 +226,13 @@ export default function Home() {
                   </p>
                 ) : null}
               </div>
-            </div>
-            <div className="rounded-2xl border border-[#efc294] bg-[#fff3df] px-4 py-3 text-right text-xs text-[#9e6a46]">
-              <div className="font-semibold text-[#7f4a2f]">
-                {currentSpot?.updatedBy ?? "-"}
-              </div>
-              <div className="mt-1 font-mono text-[11px] text-[#a47453]">
-                {formattedUpdatedAt}
+              <div className="w-full rounded-2xl border border-[#efc294] bg-[#fff3df] px-4 py-3 text-right text-xs text-[#9e6a46] sm:w-fit sm:self-end">
+                <div className="font-semibold text-[#7f4a2f]">
+                  {currentSpot?.updatedBy ?? "-"}
+                </div>
+                <div className="mt-1 font-mono text-[11px] text-[#a47453]">
+                  {formattedUpdatedAt}
+                </div>
               </div>
             </div>
           </div>
@@ -272,7 +270,7 @@ export default function Home() {
 
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#b27045]">
-              기둥 열
+              기둥번호
             </p>
             <div className="mt-3 grid grid-cols-4 gap-3">
               {columns.map((column) => (
@@ -295,9 +293,6 @@ export default function Home() {
           </div>
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#b27045]">
-              번호
-            </p>
             <div className="mt-3 grid grid-cols-4 gap-3">
               {numbers.map((num) => (
                 <button
