@@ -165,14 +165,14 @@ export default function Home() {
         <header className="rounded-[2rem] border border-[#f5c89d] bg-white/70 px-5 py-5 shadow-[0_16px_30px_-18px_rgba(166,109,67,0.45)] backdrop-blur">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-4 gap-y-2">
             <h1 className="text-[1.72rem] font-semibold leading-tight tracking-tight text-[#6a3d24] sm:text-3xl">
-              주차찾는 멍멍쓰
+              찌북70
             </h1>
             {nickname ? (
               <p className="pt-1 text-right text-[11px] font-medium whitespace-nowrap text-[#9f6a49] sm:pt-2 sm:text-xs">
                 {nickname}님 접속중
               </p>
             ) : null}
-            <p className="text-sm text-[#9f6a49]">힐스테이트광교중앙역</p>
+            <p className="text-sm text-[#9f6a49]">대호상희 GV70 주차 위치 찾기</p>
             {nickname ? (
               <button
                 type="button"
