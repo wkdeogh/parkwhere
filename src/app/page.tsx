@@ -163,12 +163,18 @@ export default function Home() {
       <div className="pointer-events-none absolute bottom-[-12%] left-[-18%] h-72 w-72 rounded-full bg-[#ffc9b8]/70 blur-3xl" />
       <main className="relative z-10 mx-auto flex w-full max-w-xl flex-col gap-6 px-5 pb-16 pt-10 sm:px-8">
         <header className="rounded-[2rem] border border-[#f5c89d] bg-white/70 px-5 py-5 shadow-[0_16px_30px_-18px_rgba(166,109,67,0.45)] backdrop-blur">
-          <div className="flex items-center justify-between gap-4">
-            <div>
-              <h1 className="text-3xl font-semibold tracking-tight text-[#6a3d24]">
-                대호상희 GV70 찾기
-              </h1>
-            </div>
+          <div className="flex items-start justify-between gap-4">
+            <h1 className="text-3xl font-semibold tracking-tight text-[#6a3d24]">
+              대호상희 GV70 찾기
+            </h1>
+            {nickname ? (
+              <p className="pt-2 text-right text-xs font-medium text-[#9f6a49]">
+                {nickname}님 접속중
+              </p>
+            ) : null}
+          </div>
+          <div className="mt-1 flex items-center justify-between gap-4">
+            <p className="text-sm text-[#9f6a49]">힐스테이트광교중앙역</p>
             {nickname ? (
               <button
                 type="button"
@@ -179,7 +185,6 @@ export default function Home() {
               </button>
             ) : null}
           </div>
-          <p className="mt-2 text-sm text-[#9f6a49]">힐스테이트광교중앙역</p>
         </header>
 
         <section className="rounded-[2rem] border border-[#f2c39b] bg-[#fff8ef]/90 p-5 shadow-[0_18px_32px_-20px_rgba(141,88,51,0.4)]">
@@ -200,13 +205,23 @@ export default function Home() {
                 />
               </div>
               <div>
-                <p className="text-sm font-medium text-[#875334]">
-                  {loading
-                    ? "위치 불러오는 중이에요..."
-                    : currentSpot
-                      ? `지금은 ${currentSpot.level} · ${currentSpot.column}${currentSpot.number} 에 있어요!`
-                      : "아직 저장된 위치가 없어요."}
-                </p>
+                {loading ? (
+                  <p className="text-sm font-medium text-[#875334]">
+                    위치 불러오는 중이에요...
+                  </p>
+                ) : currentSpot ? (
+                  <div>
+                    <p className="text-sm font-medium text-[#875334]">현재 위치는...</p>
+                    <p className="mt-1 text-2xl font-semibold tracking-tight text-[#6f3f23]">
+                      {currentSpot.level} {currentSpot.column}
+                      {currentSpot.number}
+                    </p>
+                  </div>
+                ) : (
+                  <p className="text-sm font-medium text-[#875334]">
+                    아직 저장된 위치가 없어요.
+                  </p>
+                )}
                 {savedPulse ? (
                   <p className="mt-2 text-xs font-semibold text-[#ca6f3d]">
                     멍멍쓰 주차위치 기억완료!
