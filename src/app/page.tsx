@@ -165,7 +165,7 @@ export default function Home() {
         <header className="rounded-[2rem] border border-[#f5c89d] bg-white/70 px-5 py-5 shadow-[0_16px_30px_-18px_rgba(166,109,67,0.45)] backdrop-blur">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-4 gap-y-2">
             <h1 className="text-[1.72rem] font-semibold leading-tight tracking-tight text-[#6a3d24] sm:text-3xl">
-              찌북70
+              찌북파인더
             </h1>
             {nickname ? (
               <p className="pt-1 text-right text-[11px] font-medium whitespace-nowrap text-[#9f6a49] sm:pt-2 sm:text-xs">
