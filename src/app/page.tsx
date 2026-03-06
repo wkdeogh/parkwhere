@@ -72,7 +72,13 @@ export default function Home() {
           docRef,
           (snapshot) => {
             if (snapshot.exists()) {
-              setCurrentSpot(snapshot.data() as ParkingSpot);
+              const spot = snapshot.data() as ParkingSpot;
+              setCurrentSpot(spot);
+              setSelection({
+                level: spot.level,
+                column: spot.column,
+                number: spot.number,
+              });
             } else {
               setCurrentSpot(null);
             }
