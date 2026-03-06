@@ -222,7 +222,7 @@ export default function Home() {
                 )}
                 {savedPulse ? (
                   <p className="mt-2 text-xs font-semibold text-[#ca6f3d]">
-                    멍멍쓰 주차위치 기억완료!
+                    주차위치 저장완료!
                   </p>
                 ) : null}
               </div>
